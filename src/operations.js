@@ -2,6 +2,7 @@ const { createClient } = require("./create-client")
 const {
   translatedProductsQuery,
   translatedCollectionsQuery,
+  translatedPagesQuery,
 } = require("./queries")
 
 exports.createOperations = options => {
@@ -22,6 +23,12 @@ exports.createOperations = options => {
       return await createOperation(
         translatedCollectionsQuery(ids),
         "TRANSLATED_COLLECTIONS"
+      )
+    },
+    createTranslatedPagesOperation: async ids => {
+      return await createOperation(
+        translatedPagesQuery(ids),
+        "TRANSLATED_PAGES"
       )
     },
   }

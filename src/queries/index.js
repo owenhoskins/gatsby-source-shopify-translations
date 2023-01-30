@@ -79,3 +79,25 @@ exports.translatedCollectionsQuery = ids => {
     },
   }
 }
+
+exports.translatedPagesQuery = ids => {
+  return {
+    query: gql`
+      query translatedThings($ids: [ID!]!) {
+        nodes(ids: $ids) {
+          ... on Page {
+            __typename
+            id
+            title
+            body
+            bodySummary
+            handle
+          }
+        }
+      }
+    `,
+    variables: {
+      ids,
+    },
+  }
+}
