@@ -1,9 +1,9 @@
 const {
   createSchemaCustomization,
-} = require("./dist/plugin/createSchemaCustomization")
-const { sourceNodes } = require("./dist/plugin/sourceNodes")
-const { onCreatePage } = require("./dist/plugin/onCreatePage")
-const { onCreateNode } = require("./dist/plugin/onCreateNode")
+} = require("./src/plugin/createSchemaCustomization")
+const { sourceNodes } = require("./src/plugin/sourceNodes")
+const { onCreatePage } = require("./src/plugin/onCreatePage")
+const { onCreateNode } = require("./src/plugin/onCreateNode")
 
 exports.createSchemaCustomization = createSchemaCustomization
 exports.sourceNodes = sourceNodes

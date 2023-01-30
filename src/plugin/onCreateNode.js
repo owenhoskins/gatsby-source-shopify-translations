@@ -1,9 +1,11 @@
-export function unstable_shouldOnCreateNode({ node }) {
+function unstable_shouldOnCreateNode({ node }) {
   // We only care about JSON content.
   return node.internal.mediaType === `application/json`
 }
 
-export const onCreateNode = async (
+exports.unstable_shouldOnCreateNode = unstable_shouldOnCreateNode;
+
+exports.onCreateNode = async (
   {
     node,
     actions,
@@ -14,6 +16,7 @@ export const onCreateNode = async (
   },
   { localeJsonSourceName = "locale" }
 ) => {
+
   if (!unstable_shouldOnCreateNode({ node })) {
     return
   }
@@ -26,6 +29,9 @@ export const onCreateNode = async (
     name,
     id,
   } = node
+
+  console.log('translations: type', type)
+  console.log('translations: sourceInstanceName', sourceInstanceName)
 
   // Currently only support file resources
   if (type !== "File") {

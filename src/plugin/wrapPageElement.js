@@ -75,9 +75,13 @@ const wrapPageElement = (
     path,
   }
 
+  console.log('wrapPageElement: context: ', context)
+
   return (
     <LocaleContext.Provider value={context}>{element}</LocaleContext.Provider>
   )
 }
 
 export { wrapPageElement }
+// exports.wrapPageElement = wrapPageElement
+

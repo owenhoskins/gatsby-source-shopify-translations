@@ -4,12 +4,15 @@ import { LocaleContext } from "../context"
 import { localizedPath } from "../helpers"
 
 export const useLocalization = () => {
-  const {language, defaultLang} = useContext(LocaleContext)
+  // const {language, defaultLang} = useContext(LocaleContext)
+  const context = useContext(LocaleContext)
+  console.log('useLocalization: ', context)
   const config = withDefaults()
 
   return {
-    language,
-    defaultLang,
+    // language,
+    // defaultLang,
+    ...context,
     prefixDefault: config.prefixDefault,
     localizedPath,
   }
