@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir dist --ignore \"**/__tests__\"",
+    "watch": "npm run build -- --watch",
     "test": "jest",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
