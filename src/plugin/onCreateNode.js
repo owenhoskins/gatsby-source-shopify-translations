@@ -3,7 +3,7 @@ function unstable_shouldOnCreateNode({ node }) {
   return node.internal.mediaType === `application/json`
 }
 
-exports.unstable_shouldOnCreateNode = unstable_shouldOnCreateNode;
+exports.unstable_shouldOnCreateNode = unstable_shouldOnCreateNode
 
 exports.onCreateNode = async (
   {
@@ -16,7 +16,6 @@ exports.onCreateNode = async (
   },
   { localeJsonSourceName = "locale" }
 ) => {
-
   if (!unstable_shouldOnCreateNode({ node })) {
     return
   }
@@ -29,9 +28,6 @@ exports.onCreateNode = async (
     name,
     id,
   } = node
-
-  console.log('translations: type', type)
-  console.log('translations: sourceInstanceName', sourceInstanceName)
 
   // Currently only support file resources
   if (type !== "File") {
@@ -83,7 +79,6 @@ exports.onCreateNode = async (
     data,
     fileAbsolutePath: absolutePath,
   }
-
 
   createNode(localeNode)
 

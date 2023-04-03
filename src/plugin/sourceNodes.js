@@ -25,7 +25,15 @@ async function waitShopifyNodes(
 }
 
 async function sourceAllNodes(gatsbyApi, pluginOptions) {
-  const { locales, waitingGatsbySourceShopify = 5000 } = pluginOptions
+  const {
+    locales,
+    waitingGatsbySourceShopify = 5000,
+    shopifyConnections,
+  } = pluginOptions
+
+  // shopifyConnections: [`collections`, `shop`, `content`],
+  console.log("shopifyConnections: ", shopifyConnections)
+  shopifyConnections.push("product")
 
   const {
     actions,
@@ -38,6 +46,18 @@ async function sourceAllNodes(gatsbyApi, pluginOptions) {
   const { createNode } = actions
 
   for (const resource of resources) {
+    /*
+    // @TODO: this logic isn't working
+    console.log(
+      "translation resource: ",
+      resource,
+      resource.connection,
+      !shopifyConnections.some(el => el !== resource.connection)
+    )
+    if (!shopifyConnections.some(el => el === resource.connection)) {
+      continue
+    }
+    */
     let translations = []
 
     for (const lang of locales) {
@@ -49,20 +69,17 @@ async function sourceAllNodes(gatsbyApi, pluginOptions) {
         waitingGatsbySourceShopify
       )
       const ids = resourceNodes.map(node => node.shopifyId)
-
       const callNumbers = Math.ceil(ids.length / MAX_INPUT_RANGE)
-
       for (let i = 0; i < callNumbers; i++) {
         const idsTranch = ids.splice(0, MAX_INPUT_RANGE)
         const { data } = await op(idsTranch)
         const newTranslations = data.nodes
           .filter(node => !!node)
           .map(node => {
-            console.log("node.id: ", node.id)
             return {
               ...node,
               handle: slugify(node.title),
-              storefrontId: node.id,
+              shopifyId: node.id,
               locale: lang,
             }
           })
