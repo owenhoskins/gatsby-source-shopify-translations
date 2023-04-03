@@ -31,6 +31,7 @@ exports.translatedProductsQuery = ids => {
                 node {
                   id
                   title
+                  price
                   selectedOptions {
                     name
                     value
@@ -92,6 +93,65 @@ exports.translatedPagesQuery = ids => {
             body
             bodySummary
             handle
+            metafields(first: 30) {
+              edges {
+                node {
+                  id
+                  key
+                  value
+                  description
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+    variables: {
+      ids,
+    },
+  }
+}
+
+exports.translatedShopPoliciesQuery = ids => {
+  return {
+    query: gql`
+      query translatedThings($ids: [ID!]!) {
+        nodes(ids: $ids) {
+          ... on ShopPolicy {
+            __typename
+            id
+            title
+            body
+            handle
+          }
+        }
+      }
+    `,
+    variables: {
+      ids,
+    },
+  }
+}
+
+exports.translatedMenusQuery = ids => {
+  return {
+    query: gql`
+      query translatedThings($ids: [ID!]!) {
+        nodes(ids: $ids) {
+          ... on Menu {
+            __typename
+            id
+            handle
+            title
+            items {
+              title
+              type
+              items {
+                title
+                type
+              }
+            }
           }
         }
       }

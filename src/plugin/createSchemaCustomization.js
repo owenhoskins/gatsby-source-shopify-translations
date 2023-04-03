@@ -61,6 +61,12 @@ exports.createSchemaCustomization = function ({ actions }) {
       edges: [CollectionNode]
     }
 
+    type Item {
+      title: String
+      type: String
+      items: [Item]
+    }
+
     type ShopifyTranslatedProduct implements Node {
       id: ID
       title: String
@@ -80,6 +86,28 @@ exports.createSchemaCustomization = function ({ actions }) {
       description: String
       descriptionHtml: String
       handle: String
+    }
+
+    type ShopifyTranslatedPage implements Node {
+      id: ID
+      title: String
+      body: String
+      handle: String
+      metafields: MetafieldEdges
+    }
+
+    type ShopifyTranslatedShopPolicy implements Node {
+      id: ID
+      title: String
+      body: String
+      handle: String
+    }
+
+    type ShopifyTranslatedMenu implements Node {
+      id: ID
+      title: String
+      handle: String
+      items: [Item]
     }
   `)
 }

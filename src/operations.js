@@ -3,6 +3,8 @@ const {
   translatedProductsQuery,
   translatedCollectionsQuery,
   translatedPagesQuery,
+  translatedShopPoliciesQuery,
+  translatedMenusQuery,
 } = require("./queries")
 
 exports.createOperations = options => {
@@ -29,6 +31,18 @@ exports.createOperations = options => {
       return await createOperation(
         translatedPagesQuery(ids),
         "TRANSLATED_PAGES"
+      )
+    },
+    createTranslatedShopPoliciesOperation: async ids => {
+      return await createOperation(
+        translatedShopPoliciesQuery(ids),
+        "TRANSLATED_SHOPPOLICIES"
+      )
+    },
+    createTranslatedMenusOperation: async ids => {
+      return await createOperation(
+        translatedMenusQuery(ids),
+        "TRANSLATED_MENUS"
       )
     },
   }
