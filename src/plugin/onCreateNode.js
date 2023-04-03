@@ -1,11 +1,9 @@
-function unstable_shouldOnCreateNode({ node }) {
+export function unstable_shouldOnCreateNode({ node }) {
   // We only care about JSON content.
   return node.internal.mediaType === `application/json`
 }
 
-exports.unstable_shouldOnCreateNode = unstable_shouldOnCreateNode
-
-exports.onCreateNode = async (
+export const onCreateNode = async (
   {
     node,
     actions,

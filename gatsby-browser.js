@@ -1,3 +1,2 @@
-
-const {wrapPageElement} = require('./src/plugin/wrapPageElement');
-exports.wrapPageElement = wrapPageElement;
+const { wrapPageElement } = require("./dist/plugin/wrapPageElement")
+exports.wrapPageElement = wrapPageElement
