@@ -76,9 +76,13 @@ async function sourceAllNodes(gatsbyApi, pluginOptions) {
         const newTranslations = data.nodes
           .filter(node => !!node)
           .map(node => {
+            // console.log("translations handle: ", node.title, node.handle)
             return {
               ...node,
-              handle: slugify(node.title),
+              // handle: slugify(node.title),
+              // We are not taking the route of translated slugs/paths
+              // but are using the english URL as a base
+              handle: node.handle,
               shopifyId: node.id,
               locale: lang,
             }

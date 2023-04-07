@@ -140,8 +140,12 @@ function _sourceAllNodes() {
                                 newTranslations = data.nodes.filter(function (node) {
                                   return !!node;
                                 }).map(function (node) {
+                                  // console.log("translations handle: ", node.title, node.handle)
                                   return (0, _extends2.default)({}, node, {
-                                    handle: slugify(node.title),
+                                    // handle: slugify(node.title),
+                                    // We are not taking the route of translated slugs/paths
+                                    // but are using the english URL as a base
+                                    handle: node.handle,
                                     shopifyId: node.id,
                                     locale: lang
                                   });
