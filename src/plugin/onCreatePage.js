@@ -4,7 +4,7 @@ const { withDefaults } = require(`../utils/default-options`)
 exports.onCreatePage = ({ page, actions }, pluginOptions) => {
   if (pluginOptions.sourceOnlyMode) return
   const { createPage, deletePage, createRedirect } = actions
-  const { configPath, defaultLang, locales, prefixDefault } =
+  const { configPath, defaultLanguage, locales, prefixDefault } =
     withDefaults(pluginOptions)
 
   const isEnvDevelopment = process.env.NODE_ENV === "development"
@@ -29,7 +29,7 @@ exports.onCreatePage = ({ page, actions }, pluginOptions) => {
           ...page.context,
           language: locale.code,
           languages: languages,
-          defaultLanguage: defaultLang,
+          defaultLanguage: defaultLanguage,
           hrefLang: locale.hrefLang,
           dateFormat: locale.dateFormat,
         },
@@ -51,7 +51,7 @@ exports.onCreatePage = ({ page, actions }, pluginOptions) => {
       context: {
         ...page.context,
         languages: languages,
-        defaultLanguage: defaultLang,
+        defaultLanguage: defaultLanguage,
         originalPath,
       },
     }
@@ -91,14 +91,14 @@ exports.onCreatePage = ({ page, actions }, pluginOptions) => {
     const newPage = {
       ...page,
       path: localizedPath({
-        defaultLang,
+        defaultLanguage,
         prefixDefault,
         locale: locale.code,
         path: newPath,
       }),
       matchPath: page.matchPath
         ? localizedPath({
-            defaultLang,
+            defaultLanguage,
             prefixDefault,
             locale: locale.code,
             path: page.matchPath,
@@ -108,7 +108,7 @@ exports.onCreatePage = ({ page, actions }, pluginOptions) => {
         ...page.context,
         language: locale.code,
         languages: languages,
-        defaultLanguage: defaultLang,
+        defaultLanguage: defaultLanguage,
         hrefLang: locale.hrefLang,
         originalPath,
         dateFormat: locale.dateFormat,

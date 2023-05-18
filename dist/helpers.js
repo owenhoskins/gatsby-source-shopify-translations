@@ -6,18 +6,18 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function isDefaultLang(locale, defaultLang) {
-  return locale === defaultLang;
+function isDefaultLang(locale, defaultLanguage) {
+  return locale === defaultLanguage;
 }
 
 function localizedPath(_ref) {
-  var defaultLang = _ref.defaultLang,
+  var defaultLanguage = _ref.defaultLanguage,
       prefixDefault = _ref.prefixDefault,
       locale = _ref.locale,
       path = _ref.path;
 
   // The default language isn't prefixed
-  if (isDefaultLang(locale, defaultLang) && !prefixDefault) {
+  if (isDefaultLang(locale, defaultLanguage) && !prefixDefault) {
     return path;
   }
 
@@ -68,9 +68,9 @@ function getLanguages(_ref2) {
 
 function getDefaultLanguage(_ref3) {
   var locales = _ref3.locales,
-      defaultLang = _ref3.defaultLang;
+      defaultLanguage = _ref3.defaultLanguage;
   return locales.find(function (locale) {
-    return locale.code === defaultLang;
+    return locale.code === defaultLanguage;
   });
 }
 

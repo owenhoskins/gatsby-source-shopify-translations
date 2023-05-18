@@ -21,7 +21,7 @@ exports.onCreatePage = function (_ref, pluginOptions) {
 
   var _withDefaults = withDefaults(pluginOptions),
       configPath = _withDefaults.configPath,
-      defaultLang = _withDefaults.defaultLang,
+      defaultLanguage = _withDefaults.defaultLanguage,
       locales = _withDefaults.locales,
       prefixDefault = _withDefaults.prefixDefault;
 
@@ -46,7 +46,7 @@ exports.onCreatePage = function (_ref, pluginOptions) {
         context: (0, _extends2.default)({}, page.context, {
           language: locale.code,
           languages: languages,
-          defaultLanguage: defaultLang,
+          defaultLanguage: defaultLanguage,
           hrefLang: locale.hrefLang,
           dateFormat: locale.dateFormat
         })
@@ -66,7 +66,7 @@ exports.onCreatePage = function (_ref, pluginOptions) {
     var _newPage = (0, _extends2.default)({}, page, {
       context: (0, _extends2.default)({}, page.context, {
         languages: languages,
-        defaultLanguage: defaultLang,
+        defaultLanguage: defaultLanguage,
         originalPath: originalPath
       })
     });
@@ -106,13 +106,13 @@ exports.onCreatePage = function (_ref, pluginOptions) {
 
     var newPage = (0, _extends2.default)({}, page, {
       path: localizedPath({
-        defaultLang: defaultLang,
+        defaultLanguage: defaultLanguage,
         prefixDefault: prefixDefault,
         locale: locale.code,
         path: newPath
       }),
       matchPath: page.matchPath ? localizedPath({
-        defaultLang: defaultLang,
+        defaultLanguage: defaultLanguage,
         prefixDefault: prefixDefault,
         locale: locale.code,
         path: page.matchPath
@@ -120,7 +120,7 @@ exports.onCreatePage = function (_ref, pluginOptions) {
       context: (0, _extends2.default)({}, page.context, {
         language: locale.code,
         languages: languages,
-        defaultLanguage: defaultLang,
+        defaultLanguage: defaultLanguage,
         hrefLang: locale.hrefLang,
         originalPath: originalPath,
         dateFormat: locale.dateFormat

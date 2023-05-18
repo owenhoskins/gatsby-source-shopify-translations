@@ -4,19 +4,20 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var defaultLang = "en";
+var defaultLanguage = "en";
 
 function withDefaults(themeOptions) {
   if (!themeOptions) {
+    console.log("withDefaults no themeOptions!");
     return {
-      defaultLang: defaultLang,
+      defaultLanguage: defaultLanguage,
       prefixDefault: true
     };
   }
 
   return (0, _extends2.default)({}, themeOptions, {
     configPath: themeOptions.configPath,
-    defaultLang: themeOptions.defaultLang || defaultLang,
+    defaultLanguage: themeOptions.defaultLanguage || defaultLanguage,
     prefixDefault: themeOptions.prefixDefault ? themeOptions.prefixDefault : false,
     locales: themeOptions.locales || null,
     sourceOnlyMode: themeOptions.sourceOnlyMode ? themeOptions.sourceOnlyMode : false
@@ -24,6 +25,6 @@ function withDefaults(themeOptions) {
 }
 
 module.exports = {
-  defaultLang: defaultLang,
+  defaultLanguage: defaultLanguage,
   withDefaults: withDefaults
 };

@@ -1,10 +1,10 @@
-function isDefaultLang(locale, defaultLang) {
-  return locale === defaultLang
+function isDefaultLang(locale, defaultLanguage) {
+  return locale === defaultLanguage
 }
 
-function localizedPath({ defaultLang, prefixDefault, locale, path }) {
+function localizedPath({ defaultLanguage, prefixDefault, locale, path }) {
   // The default language isn't prefixed
-  if (isDefaultLang(locale, defaultLang) && !prefixDefault) {
+  if (isDefaultLang(locale, defaultLanguage) && !prefixDefault) {
     return path
   }
 
@@ -44,8 +44,8 @@ function getLanguages({ locales, localeStr }) {
   return langs
 }
 
-function getDefaultLanguage({ locales, defaultLang }) {
-  return locales.find(locale => locale.code === defaultLang)
+function getDefaultLanguage({ locales, defaultLanguage }) {
+  return locales.find(locale => locale.code === defaultLanguage)
 }
 
 module.exports = {

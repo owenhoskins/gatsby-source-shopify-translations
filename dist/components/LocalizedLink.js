@@ -31,7 +31,7 @@ var LocalizedLink = /*#__PURE__*/(0, _react.forwardRef)(function (_ref, ref) {
       props = (0, _objectWithoutPropertiesLoose2.default)(_ref, _excluded);
 
   var _useLocalization = (0, _useLocalization2.useLocalization)(),
-      defaultLang = _useLocalization.defaultLang,
+      defaultLanguage = _useLocalization.defaultLanguage,
       prefixDefault = _useLocalization.prefixDefault,
       language = _useLocalization.language;
 
@@ -39,7 +39,7 @@ var LocalizedLink = /*#__PURE__*/(0, _react.forwardRef)(function (_ref, ref) {
   return /*#__PURE__*/_react.default.createElement(_gatsby.Link, (0, _extends2.default)({}, props, {
     ref: ref,
     to: (0, _helpers.localizedPath)({
-      defaultLang: defaultLang,
+      defaultLanguage: defaultLanguage,
       prefixDefault: prefixDefault,
       locale: linkLocale,
       path: to

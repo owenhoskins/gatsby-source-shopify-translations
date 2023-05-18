@@ -29,7 +29,8 @@ var wrapPageElement = function wrapPageElement(_ref, _ref2) {
       languages = pageContext.languages,
       originalPath = pageContext.originalPath,
       defaultLanguage = pageContext.defaultLanguage,
-      path = pageContext.path;
+      path = pageContext.path; // console.log("wrapPageElement: pageContext: ", props.path, pageContext)
+
   var localeNodes = (data === null || data === void 0 ? void 0 : (_data$localeJsonNodeN = data[localeJsonNodeName]) === null || _data$localeJsonNodeN === void 0 ? void 0 : _data$localeJsonNodeN.edges) || [];
 
   if (locales.length > 1 && localeNodes.length === 0 && process.env.NODE_ENV === "development") {
@@ -62,6 +63,8 @@ var wrapPageElement = function wrapPageElement(_ref, _ref2) {
       useSuspense: true
     }
   });
+
+  console.log("wrapPageElement change language? | i18n.language: ", _i18next.default.language, " | language: ", language);
 
   if (_i18next.default.language !== language) {
     _i18next.default.changeLanguage(language);

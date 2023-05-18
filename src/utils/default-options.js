@@ -1,23 +1,26 @@
-const defaultLang = `en`
+const defaultLanguage = `en`
 
 function withDefaults(themeOptions) {
   if (!themeOptions) {
-    return { defaultLang, prefixDefault: true }
+    console.log("withDefaults no themeOptions!")
+    return { defaultLanguage, prefixDefault: true }
   }
 
   return {
     ...themeOptions,
     configPath: themeOptions.configPath,
-    defaultLang: themeOptions.defaultLang || defaultLang,
+    defaultLanguage: themeOptions.defaultLanguage || defaultLanguage,
     prefixDefault: themeOptions.prefixDefault
       ? themeOptions.prefixDefault
       : false,
     locales: themeOptions.locales || null,
-    sourceOnlyMode: themeOptions.sourceOnlyMode ? themeOptions.sourceOnlyMode : false
+    sourceOnlyMode: themeOptions.sourceOnlyMode
+      ? themeOptions.sourceOnlyMode
+      : false,
   }
 }
 
 module.exports = {
-  defaultLang,
+  defaultLanguage,
   withDefaults,
 }

@@ -12,6 +12,8 @@ const wrapPageElement = (
   const { language, languages, originalPath, defaultLanguage, path } =
     pageContext
 
+  // console.log("wrapPageElement: pageContext: ", props.path, pageContext)
+
   const localeNodes = data?.[localeJsonNodeName]?.edges || []
 
   if (
@@ -62,6 +64,12 @@ const wrapPageElement = (
     },
   })
 
+  console.log(
+    "wrapPageElement change language? | i18n.language: ",
+    i18n.language,
+    " | language: ",
+    language
+  )
   if (i18n.language !== language) {
     i18n.changeLanguage(language)
   }

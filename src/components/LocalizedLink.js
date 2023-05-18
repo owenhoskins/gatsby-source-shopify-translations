@@ -6,14 +6,14 @@ import { localizedPath } from "../helpers"
 import { useLocalization } from "../hooks/useLocalization"
 
 export const LocalizedLink = forwardRef(({ to, lang, ...props }, ref) => {
-  const { defaultLang, prefixDefault, language } = useLocalization()
+  const { defaultLanguage, prefixDefault, language } = useLocalization()
   const linkLocale = lang || language
   return (
     <Link
       {...props}
       ref={ref}
       to={localizedPath({
-        defaultLang,
+        defaultLanguage,
         prefixDefault,
         locale: linkLocale,
         path: to,

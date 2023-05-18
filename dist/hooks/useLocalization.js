@@ -19,6 +19,7 @@ var useLocalization = function useLocalization() {
   var context = (0, _react.useContext)(_context.LocaleContext); // language, defaultLang
 
   var config = (0, _defaultOptions.withDefaults)();
+  console.log("useLocalization: config ", config);
   return (0, _extends2.default)({}, context, {
     prefixDefault: config.prefixDefault,
     localizedPath: _helpers.localizedPath

@@ -1,4 +1,4 @@
 import React, { createContext } from "react"
-import { defaultLang } from "./utils/default-options"
+import { defaultLanguage } from "./utils/default-options"
 
-export const LocaleContext = createContext({ defaultLang, language: "en" })
+export const LocaleContext = createContext({ defaultLanguage, language: "en" })
