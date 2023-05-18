@@ -78,7 +78,6 @@ function _sourceAllNodes() {
           case 0:
             locales = pluginOptions.locales, _pluginOptions$waitin = pluginOptions.waitingGatsbySourceShopify, waitingGatsbySourceShopify = _pluginOptions$waitin === void 0 ? 5000 : _pluginOptions$waitin, shopifyConnections = pluginOptions.shopifyConnections; // shopifyConnections: [`collections`, `shop`, `content`],
 
-            console.log("shopifyConnections: ", shopifyConnections);
             shopifyConnections.push("product");
             actions = gatsbyApi.actions, createContentDigest = gatsbyApi.createContentDigest, createNodeId = gatsbyApi.createNodeId, getNodesByType = gatsbyApi.getNodesByType, reporter = gatsbyApi.reporter;
             createNode = actions.createNode;
@@ -202,19 +201,19 @@ function _sourceAllNodes() {
             });
             _iterator = _createForOfIteratorHelperLoose(resources);
 
-          case 7:
+          case 6:
             if ((_step = _iterator()).done) {
-              _context5.next = 11;
+              _context5.next = 10;
               break;
             }
 
-            return _context5.delegateYield(_loop(), "t0", 9);
+            return _context5.delegateYield(_loop(), "t0", 8);
 
-          case 9:
-            _context5.next = 7;
+          case 8:
+            _context5.next = 6;
             break;
 
-          case 11:
+          case 10:
           case "end":
             return _context5.stop();
         }

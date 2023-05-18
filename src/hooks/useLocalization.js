@@ -1,17 +1,13 @@
 import { useContext } from "react"
-import { defaultLang, withDefaults } from "../utils/default-options"
 import { LocaleContext } from "../context"
 import { localizedPath } from "../helpers"
+import { withDefaults } from "../utils/default-options"
 
 export const useLocalization = () => {
-  // const {language, defaultLang} = useContext(LocaleContext)
-  const context = useContext(LocaleContext)
-  console.log('useLocalization: ', context)
+  const context = useContext(LocaleContext) // language, defaultLang
   const config = withDefaults()
 
   return {
-    // language,
-    // defaultLang,
     ...context,
     prefixDefault: config.prefixDefault,
     localizedPath,

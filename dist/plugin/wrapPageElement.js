@@ -5,9 +5,9 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports.wrapPageElement = void 0;
 
-var _react = _interopRequireDefault(require("react"));
-
 var _i18next = _interopRequireDefault(require("i18next"));
+
+var _react = _interopRequireDefault(require("react"));
 
 var _reactI18next = require("react-i18next");
 
@@ -74,7 +74,6 @@ var wrapPageElement = function wrapPageElement(_ref, _ref2) {
     defaultLanguage: defaultLanguage,
     path: path
   };
-  console.log('wrapPageElement: context: ', context);
   return /*#__PURE__*/_react.default.createElement(_context.LocaleContext.Provider, {
     value: context
   }, element);

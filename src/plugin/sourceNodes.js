@@ -32,7 +32,6 @@ async function sourceAllNodes(gatsbyApi, pluginOptions) {
   } = pluginOptions
 
   // shopifyConnections: [`collections`, `shop`, `content`],
-  console.log("shopifyConnections: ", shopifyConnections)
   shopifyConnections.push("product")
 
   const {

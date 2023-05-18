@@ -9,16 +9,15 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _react = require("react");
 
-var _defaultOptions = require("../utils/default-options");
-
 var _context = require("../context");
 
 var _helpers = require("../helpers");
 
+var _defaultOptions = require("../utils/default-options");
+
 var useLocalization = function useLocalization() {
-  // const {language, defaultLang} = useContext(LocaleContext)
-  var context = (0, _react.useContext)(_context.LocaleContext);
-  console.log('useLocalization: ', context);
+  var context = (0, _react.useContext)(_context.LocaleContext); // language, defaultLang
+
   var config = (0, _defaultOptions.withDefaults)();
   return (0, _extends2.default)({}, context, {
     prefixDefault: config.prefixDefault,

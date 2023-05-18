@@ -12,8 +12,6 @@ var _require2 = require("../utils/default-options"),
     withDefaults = _require2.withDefaults;
 
 exports.onCreatePage = function (_ref, pluginOptions) {
-  var _page$context;
-
   var page = _ref.page,
       actions = _ref.actions;
   if (pluginOptions.sourceOnlyMode) return;
@@ -75,21 +73,25 @@ exports.onCreatePage = function (_ref, pluginOptions) {
 
     createPage(_newPage);
   } // Exclude product page  exit
+  // @TODO: What is the purpose of this redirect?
+  // well, its not running because `isAlreadyTranslated` is indeed `undefined` and should not run
 
-
-  if ((_page$context = page.context) !== null && _page$context !== void 0 && _page$context.isAlreadyTranslated) {
-    languages.forEach(function (locale) {
+  /*
+  if (page.context?.isAlreadyTranslated) {
+    languages.forEach(locale => {
       createRedirect({
         fromPath: originalPath,
-        toPath: "/" + locale.code + originalPath,
+        toPath: `/${locale.code}${originalPath}`,
         Language: locale.code,
         isPermanent: false,
         redirectInBrowser: isEnvDevelopment,
-        statusCode: 301
-      });
-    });
-    return;
+        statusCode: 301,
+      })
+    })
+    return
   }
+  */
+
 
   languages.forEach(function (locale) {
     // If page defined in config file I use that path
@@ -129,8 +131,9 @@ exports.onCreatePage = function (_ref, pluginOptions) {
       // Match all paths starting with this code (apart from other valid paths)
       newPage.matchPath = "/" + locale.code + "/*";
     } // If 404 I don't redirect
+    // @TODO: What is this doing here?
 
-
+    /*
     if (page.path.indexOf("404") === -1 && page.path !== "/") {
       createRedirect({
         fromPath: newPath,
@@ -138,9 +141,11 @@ exports.onCreatePage = function (_ref, pluginOptions) {
         Language: locale.code,
         isPermanent: false,
         redirectInBrowser: isEnvDevelopment,
-        statusCode: 301
-      });
+        statusCode: 301,
+      })
     }
+    */
+
 
     createPage(newPage);
   });

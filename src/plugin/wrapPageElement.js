@@ -1,7 +1,6 @@
-import React from "react"
 import i18n from "i18next"
+import React from "react"
 import { initReactI18next } from "react-i18next"
-
 import { LocaleContext } from "../context"
 
 const wrapPageElement = (
@@ -75,8 +74,6 @@ const wrapPageElement = (
     path,
   }
 
-  console.log('wrapPageElement: context: ', context)
-
   return (
     <LocaleContext.Provider value={context}>{element}</LocaleContext.Provider>
   )
@@ -84,4 +81,3 @@ const wrapPageElement = (
 
 export { wrapPageElement }
 // exports.wrapPageElement = wrapPageElement
-

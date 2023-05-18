@@ -22,7 +22,7 @@ exports.onCreatePage = ({ page, actions }, pluginOptions) => {
       deletePage(page)
 
       const locale = languages.find(lang => lang.code === page.context.locale)
-      
+
       const newPage = {
         ...page,
         context: {
@@ -59,6 +59,10 @@ exports.onCreatePage = ({ page, actions }, pluginOptions) => {
   }
 
   // Exclude product page  exit
+  // @TODO: What is the purpose of this redirect?
+  // well, its not running because `isAlreadyTranslated` is indeed `undefined` and should not run
+
+  /*
   if (page.context?.isAlreadyTranslated) {
     languages.forEach(locale => {
       createRedirect({
@@ -72,6 +76,7 @@ exports.onCreatePage = ({ page, actions }, pluginOptions) => {
     })
     return
   }
+  */
 
   languages.forEach(locale => {
     // If page defined in config file I use that path
@@ -117,6 +122,8 @@ exports.onCreatePage = ({ page, actions }, pluginOptions) => {
     }
 
     // If 404 I don't redirect
+    // @TODO: What is this doing here?
+    /*
     if (page.path.indexOf("404") === -1 && page.path !== "/") {
       createRedirect({
         fromPath: newPath,
@@ -127,6 +134,7 @@ exports.onCreatePage = ({ page, actions }, pluginOptions) => {
         statusCode: 301,
       })
     }
+    */
 
     createPage(newPage)
   })
