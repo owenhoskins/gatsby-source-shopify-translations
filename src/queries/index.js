@@ -32,6 +32,7 @@ exports.translatedProductsQuery = ids => {
                   id
                   title
                   price
+                  availableForSale
                   selectedOptions {
                     name
                     value
