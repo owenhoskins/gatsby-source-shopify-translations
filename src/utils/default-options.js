@@ -2,7 +2,8 @@ const defaultLanguage = `en`
 
 function withDefaults(themeOptions) {
   if (!themeOptions) {
-    console.log("withDefaults no themeOptions!")
+    // console.log("withDefaults no themeOptions!")
+    // @FIX themeOptions are always undefined
     return { defaultLanguage, prefixDefault: true }
   }
 

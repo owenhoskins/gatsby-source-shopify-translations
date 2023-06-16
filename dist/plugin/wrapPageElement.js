@@ -63,8 +63,15 @@ var wrapPageElement = function wrapPageElement(_ref, _ref2) {
       useSuspense: true
     }
   });
+  /*
+  console.log(
+    "wrapPageElement change language? | i18n.language: ",
+    i18n.language,
+    " | language: ",
+    language
+  )
+  */
 
-  console.log("wrapPageElement change language? | i18n.language: ", _i18next.default.language, " | language: ", language);
 
   if (_i18next.default.language !== language) {
     _i18next.default.changeLanguage(language);

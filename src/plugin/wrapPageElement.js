@@ -64,12 +64,14 @@ const wrapPageElement = (
     },
   })
 
+  /*
   console.log(
     "wrapPageElement change language? | i18n.language: ",
     i18n.language,
     " | language: ",
     language
   )
+  */
   if (i18n.language !== language) {
     i18n.changeLanguage(language)
   }
