@@ -40,15 +40,17 @@ exports.translatedProductsQuery = ids => {
                 }
               }
             }
-            metafields(first: 30) {
-              edges {
-                node {
-                  id
-                  key
-                  value
-                  description
-                }
-              }
+          metafields(identifiers: [ 
+            {namespace: "custom", key: "subtitle"},
+            {namespace: "custom", key: "excerpt"},
+            {namespace: "custom", key: "detail_1"},
+            {namespace: "custom", key: "detail_2"},
+            {namespace: "custom", key: "detail_3"}
+            ]) { 
+            id
+            key
+            value
+            description
             }
           }
         }
@@ -94,16 +96,16 @@ exports.translatedPagesQuery = ids => {
             body
             bodySummary
             handle
-            metafields(first: 30) {
-              edges {
-                node {
-                  id
-                  key
-                  value
-                  description
-                }
-              }
-            }
+          metafields(identifiers: [ 
+           {namespace: "custom", key: "stockist"}
+          ]) { 
+           type 
+           namespace 
+           key 
+           value
+           id
+           description
+          }
           }
         }
       }

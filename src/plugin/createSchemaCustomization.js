@@ -77,7 +77,7 @@ exports.createSchemaCustomization = function ({ actions }) {
       collections: CollectionEdges
       options: [Option]
       variants: VariantEdges
-      metafields: MetafieldEdges
+      metafields: [Metafield]
     }
 
     type ShopifyTranslatedCollection implements Node {
@@ -93,7 +93,7 @@ exports.createSchemaCustomization = function ({ actions }) {
       title: String
       body: String
       handle: String
-      metafields: MetafieldEdges
+      metafields: [Metafield]
     }
 
     type ShopifyTranslatedShopPolicy implements Node {
